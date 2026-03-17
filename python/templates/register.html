@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up - Sit-in System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="reg-body">
+    <div class="register-wrapper">
+        <a href="/" class="back-btn">Back</a>
+        <div class="register-container">
+            <div class="reg-form-section">
+                <h1>Sign up</h1>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form action="/register" method="POST">
+
+                    <div class="field-group">
+                        <label for="id_number">ID Number</label>
+                        <input type="text" id="id_number" name="id_number" placeholder="ID Number" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="middle_name">Middle Name</label>
+                        <input type="text" id="middle_name" name="middle_name" placeholder="Middle Name">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="course_level">Course Level</label>
+                        <select id="course_level" name="course_level" required>
+                            <option value="" disabled selected>Select Course Level</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="course">Course</label>
+                        <select id="course" name="course" required>
+                            <option value="" disabled selected>Select Course</option>
+                            <option value="BSIT">BSIT</option>
+                            <option value="BSCS">BSCS</option>
+                            <option value="BSIS">BSIS</option>
+                            <option value="ACT">ACT</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" placeholder="Enter Address" rows="3" required></textarea>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="confirm_password">Re-type Password</label>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Retype Password" required>
+                    </div>
+
+                    <button type="submit" class="register-submit-btn">Register</button>
+                </form>
+            </div>
+            <div class="reg-image-section">
+                <img src="{{ url_for('static', filename='signup_img.png') }}" alt="Sign up illustration">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

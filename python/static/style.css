@@ -1,0 +1,575 @@
+:root {
+    --primary-blue: #004a99;    
+    --accent-blue: #007bff;     
+    --alert-red: #dc3545;       
+    --light-gray: #f8f9fa;      
+    --border-color: #ddd;
+    --text-dark: #333;
+    --text-muted: #666;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-brand {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* =========================================
+   3. LOGIN PAGE LAYOUT (Home)
+   ========================================= */
+.login-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.logo-section {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.main-logo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 2rem;
+}
+
+/* =========================================
+   4. REGISTRATION PAGE LAYOUT
+   ========================================= */
+.reg-body {
+    background-color: var(-light-gray);
+    padding: 2rem 0;
+}
+
+.register-wrapper {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.register-container {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.reg-form-section {
+    flex: 1.5;
+    padding: 2.5rem;
+}
+
+.reg-image-section {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.reg-image-section img {
+    width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   5. COMMON FORM ELEMENTS
+   ========================================= */
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent-blue);
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   6. BUTTONS & LINKS
+   ========================================= */
+.login-btn, .register-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover, .register-submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: var(--alert-red);
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.register-text {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.register-text a {
+    color: var(--alert-red);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forgot-link {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.flash {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.input-group select:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.reg-form-section input,
+.reg-form-section select {
+    margin-bottom: 12px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.field-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* ── Login Page ── */
+.login-body {
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.login-container {
+    display: flex;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Left - Logo Section */
+.login-logo-section {
+    background-color: #1a73e8;
+    color: #fff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.login-logo-section .main-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.login-logo-section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-logo-section p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* Right - Form Section */
+.login-form-section {
+    flex: 1;
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form-section h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+}
+
+.forgot-link {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+    background-color: #1558b0;
+}
+
+.register-text {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #555;
+}
+
+.register-text a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+/* ── Dashboard ── */
+.dashboard-body {
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 60px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    background-color: #1a73e8;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    min-height: 100%;
+}
+
+.sidebar-profile {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 10px;
+}
+
+.profile-avatar {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.profile-name {
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+}
+
+.profile-role {
+    font-size: 12px;
+    opacity: 0.8;
+    margin: 4px 0 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li a {
+    display: block;
+    padding: 12px 24px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li a.active {
+    background-color: rgba(255,255,255,0.15);
+    color: #fff;
+}
+
+/* Main Content */
+.dashboard-main {
+    flex: 1;
+    padding: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.dashboard-header p {
+    color: #777;
+    margin-bottom: 24px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.stat-icon {
+    font-size: 32px;
+}
+
+.stat-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a73e8;
+    margin: 0;
+}
+
+.stat-info p {
+    font-size: 13px;
+    color: #777;
+    margin: 4px 0 0;
+}
+
+/* Section */
+.dashboard-section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.dashboard-section h2 {
+    font-size: 17px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #aaa;
+    font-size: 15px;
+}
+```
+
+---
+
+Your `templates` folder should now have these 3 files:
+```
+templates/
+├── index.html       ← login page
+├── register.html    ← register page
+└── dashboard.html   ← ✅ add this

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - CCS Sit-in Monitoring System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-body">
+    <nav class="navbar">
+        <div class="nav-brand">College of Computer Studies Sit-in Monitoring System</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#">Community</a>
+            <a href="#">About</a>
+            <a href="/">Login</a>
+            <a href="/register_page">Register</a>
+        </div>
+    </nav>
+
+    <div class="login-wrapper">
+        <div class="login-container">
+
+            <!-- Logo Section -->
+            <div class="login-logo-section">
+                <img src="{{ url_for('static', filename='ccs_logo.png') }}" alt="CCS Logo" class="main-logo">
+                <h2>CCS Sit-in Monitoring System</h2>
+                <p>College of Computer Studies</p>
+            </div>
+
+            <!-- Form Section -->
+            <div class="login-form-section">
+                <h1>Login</h1>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form action="/login" method="POST">
+
+                    <div class="field-group">
+                        <label for="id_number">ID Number</label>
+                        <input type="text" id="id_number" name="id_number" placeholder="Enter your ID Number" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="login-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember"> Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">Login</button>
+
+                    <p class="register-text">Don't have an account? <a href="/register_page">Register</a></p>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
