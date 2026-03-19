@@ -563,13 +563,88 @@ label {
     color: #aaa;
     font-size: 15px;
 }
-```
+/* =========================================
+   COMPACT TWO-COLUMN FORM
+   ========================================= */
 
----
+.reg-body {
+    background-color: #f0f2f5;
+    padding: 10px 0; /* Reduced top/bottom padding */
+}
 
-Your `templates` folder should now have these 3 files:
-```
-templates/
-├── index.html       ← login page
-├── register.html    ← register page
-└── dashboard.html   ← ✅ add this
+.register-wrapper {
+    width: 95%;
+    max-width: 850px; /* Smaller container width */
+    margin: 0 auto;
+}
+
+.register-container {
+    background: white;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.reg-form-section {
+    flex: 1.5;
+    padding: 20px 30px; /* Reduced from 40px */
+}
+
+.reg-form-section h1 {
+    font-size: 1.4rem; /* Smaller heading */
+    margin-bottom: 15px;
+}
+
+/* The Grid */
+.form-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px; /* Smaller gap between rows */
+    margin-bottom: 15px;
+}
+
+/* Smaller Labels & Inputs */
+.input-pair label {
+    font-size: 0.75rem; /* Tiny labels like the screenshot */
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 2px;
+}
+
+.reg-form-section input, 
+.reg-form-section select, 
+.reg-form-section textarea {
+    padding: 6px 10px; /* Significantly smaller padding */
+    font-size: 0.85rem;  /* Smaller text */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Back Button size */
+.back-btn {
+    padding: 4px 12px;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+/* Register Button size */
+.register-submit-btn {
+    padding: 8px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Right side Image Section */
+.reg-image-section {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.reg-image-section img {
+    max-width: 80%; /* Shrink the illustration slightly */
+}
