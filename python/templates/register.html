@@ -16,39 +16,58 @@
                     
                     <div class="form-grid-container">
                         
-                        <div class="input-pair">
+                        <div class="input-pair full-width">
                             <label>ID Number</label>
                             <input type="text" name="id_number" placeholder="ID Number" required>
-                        </div>
-                        <div class="input-pair">
-                            <label>Last Name</label>
-                            <input type="text" name="last_name" placeholder="Last Name" required>
                         </div>
 
                         <div class="input-pair">
                             <label>First Name</label>
                             <input type="text" name="first_name" placeholder="First Name" required>
                         </div>
+
                         <div class="input-pair">
-                            <label>Middle Name</label>
-                            <input type="text" name="middle_name" placeholder="Middle Name">
+                            <label>Last Name</label>
+                            <input type="text" name="last_name" placeholder="Last Name" required>
+                        </div>
+
+                        <div class="input-pair">
+                            <label>Course</label>
+                            <select name="course" required>
+                                <option value="" disabled selected>Select Course</option>
+                                <option value="BSIT">Information Technology</option>
+                                <option value="BSCpE">Computer Engineering</option>
+                                <option value="BSCE">Civil Engineering</option>
+                                <option value="BSME">Mechanical Engineering</option>
+                                <option value="BSEE">Electrical Engineering</option>
+                                <option value="BSIE">Industrial Engineering</option>
+                                <option value="BSNAME">Naval Architecture and Marine Engineering</option>
+                                <option value="BEEd">Elementary Education (BEEd)</option>
+                                <option value="BSEd">Secondary Education (BSEd)</option>
+                                <option value="BSCrim">Criminology</option>
+                                <option value="BSCom">Commerce</option>
+                                <option value="BSA">Accountancy</option>
+                                <option value="BSHRM">Hotel and Restaurant Management</option>
+                                <option value="BSCA">Customs Administration</option>
+                                <option value="CompSec">Computer Secretarial</option>
+                                <option value="BSIP">Industrial Psychology</option>
+                                <option value="AB-PolSci">AB Political Science</option>
+                                <option value="AB-English">AB English</option>
+                                <option value="CISCO">CISCO Networking Academy (Module 1 - 4)</option>
+                                <option value="English-Comm">English Communication Skills</option>
+                                <option value="Korean">Conversational Korean</option>
+                            </select>
                         </div>
 
                         <div class="input-pair">
                             <label>Course Level</label>
-                            <select name="course_level">
+                            <select name="course_level" required>
                                 <option value="" disabled selected>Select Course Level</option>
-                                <option value="1">Level 1</option>
-                                <option value="2">Level 2</option>
-                                </select>
-                        </div>
-                        <div class="input-pair">
-                            <label>Course</label>
-                            <select name="course">
-                                <option value="" disabled selected>Select Course</option>
-                                <option value="BSIT">BSIT</option>
-                                <option value="BSCS">BSCS</option>
-                                </select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
 
                         <div class="input-pair full-width">
@@ -65,12 +84,15 @@
                             <label>Password</label>
                             <input type="password" name="password" placeholder="Enter Password" required>
                         </div>
+
                         <div class="input-pair">
                             <label>Re-type Password</label>
                             <input type="password" name="confirm_password" placeholder="Retype Password" required>
                         </div>
 
-                    </div> <button type="submit" class="register-submit-btn">Register</button>
+                    </div> 
+                    
+                    <button type="submit" class="register-submit-btn">Register</button>
                 </form>
             </div>
         </div>
