@@ -260,3 +260,626 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     text-align: center;
 }
+
+/* Modal (Background) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.confirm-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Admin Layout Styles */
+.admin-navbar {
+    background-color: #004b95; /* Admin Blue */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.logout-btn {
+    background-color: #f0ad4e; /* Yellow logout */
+    color: #000 !important;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+
+.page-header {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.table-utility {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto 10px auto;
+}
+
+.admin-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    border-bottom: 2px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #666;
+}
+
+/* Container for the footer elements */
+.table-footer {
+    display: flex;
+    justify-content: space-between; /* Pushes text to left and buttons to right */
+    align-items: center;
+    padding: 15px 0;
+    width: 90%; /* Matches your table width */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Pagination button group */
+.pagination {
+    display: flex;
+    gap: 0; /* Keeps buttons touching like the PDF design */
+}
+
+.pag-btn {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.pag-btn:hover {
+    background-color: #eee;
+}
+
+.pag-btn.active {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Optional: Make the text slightly muted to match standard admin tables */
+.entry-info {
+    color: #666;
+}
+
+/* Container to align buttons to the left */
+.action-buttons-row {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.left-btns {
+    display: flex;
+    gap: 10px; /* Space between the two buttons */
+}
+
+/* The Blue Add Students Button */
+.btn-add {
+    background-color: #007bff; /* Bright blue */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* The Red Reset All Session Button */
+.btn-reset {
+    background-color: #dc3545; /* Soft red */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.btn-add:hover, .btn-reset:hover {
+    opacity: 0.9;
+}
+
+/* --- Main Layout --- */
+.main-content {
+    padding: 20px;
+    background-color: #f4f7f9; /* Light grey background like the screenshot */
+    min-height: 100vh;
+}
+
+.page-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* --- Action Buttons (Add/Reset) --- */
+.action-buttons-row {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+.btn-add {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-reset {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* --- Table Controls (Entries/Search) --- */
+.table-utility {
+    display: flex;
+    justify-content: space-between; /* Pushes entries left, search right */
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.search-container input {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+
+/* --- The Admin Table --- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #eee;
+}
+
+.admin-table th {
+    background-color: #fff;
+    border-bottom: 2px solid #dee2e6;
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 13px;
+    color: #495057;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+}
+
+.no-data {
+    text-align: center;
+    color: #888;
+    background-color: #fafafa !important;
+    padding: 30px !important;
+}
+
+/* --- Footer & Pagination --- */
+.table-footer {
+    display: flex;
+    justify-content: space-between; /* Info left, Pagination right */
+    align-items: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #666;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    margin-left: -1px; /* Overlaps borders like the screenshot */
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid #333; /* Darker border for active page */
+}
+
+.btn-edit-small {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.btn-delete-small {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.btn-edit-small:hover, .btn-delete-small:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+.btn-delete-small {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-delete-small:hover {
+    background-color: #a71d2a;
+    color: white;
+}
+
+.btn-edit-small {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Card Container */
+.announcement-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.card-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    background-color: #f8f9fa;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1a73e8; /* Sidebar blue */
+}
+
+/* Form Styling */
+.card-body {
+    padding: 20px;
+}
+
+.card-body textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.btn-post {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-post:hover {
+    background-color: #1557b0;
+}
+
+/* Display Box for Students */
+.announcement-display {
+    background-color: #e8f0fe;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 5px solid #1a73e8;
+    color: #3c4043;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.login-body {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-wrapper {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    background: white;
+    width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.login-logo-section {
+    flex: 1;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-right: 1px solid #eee;
+}
+
+.login-form-section {
+    flex: 1.2;
+    padding: 60px;
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-submit-btn:hover {
+    background: #1557b0;
+}
+
+/* --- Login Branding Refinement --- */
+.login-logo-section .brand-text h2 {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.login-logo-section .brand-text h1 {
+    font-size: 1.8rem;
+    color: #333;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.login-logo-section .brand-text p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* --- Form Options Alignment --- */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+}
+
+.forgot-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.register-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+.register-footer a {
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- Sidebar Fine-tuning --- */
+.sidebar-profile p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+}
+
+.sidebar-profile h3 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Centering the Form Card */
+.register-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.register-container {
+    background: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    color: #1a73e8; /* Matches dashboard blue */
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Grid Logic */
+.form-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-pair {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-pair label {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-pair input, .input-pair select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Button Layout */
+.full-width-actions {
+    grid-column: span 2;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-save {
+    flex: 2;
+    background-color: #1a73e8;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    flex: 1;
+    background-color: #dc3545; /* Red as shown in pic */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}

@@ -92,8 +92,9 @@
 
                     </div> 
                     
-                    <button type="submit" class="register-submit-btn">Register</button>
-                </form>
+                    <form action="{{ url_for('register') }}" method="POST">
+    <button type="submit">Register</button>
+</form>
             </div>
         </div>
     </div>

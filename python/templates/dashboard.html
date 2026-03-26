@@ -18,25 +18,30 @@
     </nav>
 
     <div class="dashboard-wrapper">
-
         <div class="sidebar">
             <div class="sidebar-profile">
                 <div class="profile-avatar">👤</div>
                 <p class="profile-name">{{ name }}</p>
-                <p class="profile-role">Student</p>
+                <p class="profile-role">{% if session['role'] == 'admin' %}Administrator{% else %}Student{% endif %}</p>
             </div>
             <ul class="sidebar-menu">
                 <li><a href="/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#">My Sit-in Records</a></li>
-                <li><a href="#">Schedule</a></li>
+                
+                {% if session['role'] == 'admin' %}
+                    <li><a href="/sit_in_page">Sit-in</a></li>
+                    <li><a href="#">View Sit-in Records</a></li>
+                    <li><a href="#">Reports</a></li>
+                {% else %}
+                    <li><a href="#">My Sit-in Records</a></li>
+                    <li><a href="#">Request Reservation</a></li>
+                {% endif %}
+                
                 <li><a href="#">Announcements</a></li>
-                <li><a href="#">Settings</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
 
         <div class="dashboard-main">
-
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
@@ -47,49 +52,70 @@
 
             <div class="dashboard-header">
                 <h1>Welcome, {{ name }}!</h1>
-                <p>Here's your sit-in monitoring overview.</p>
+                <p>CCS Sit-in Monitoring System Overview</p>
             </div>
 
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon"></div>
-                    <div class="stat-info">
-                        <h3>0</h3>
-                        <p>Total Sit-ins</p>
+                {% if session['role'] == 'admin' %}
+                    <div class="stat-card blue">
+                        <div class="stat-info">
+                            <h3>{{ registered if registered else 0 }}</h3>
+                            <p>Students Registered</p>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"></div>
-                    <div class="stat-info">
-                        <h3>0</h3>
-                        <p>Approved</p>
+                    <div class="stat-card green">
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Currently Sit-in</p>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"></div>
-                    <div class="stat-info">
-                        <h3>0</h3>
-                        <p>Pending</p>
+                    <div class="stat-card orange">
+                        <div class="stat-info">
+                            <h3>{{ sitin if sitin else 0 }}</h3>
+                            <p>Total Sit-in</p>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"></div>
-                    <div class="stat-info">
-                        <h3>0</h3>
-                        <p>Rejected</p>
+                {% else %}
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>30</h3>
+                            <p>Remaining Sessions</p>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
 
-            <div class="dashboard-section">
-                <h2>Recent Activity</h2>
-                <div class="empty-state">
-                    <p>No sit-in records yet.</p>
-                </div>
+           <div class="dashboard-card announcement-card">
+    <div class="card-header">
+        <h2>
+            {% if session['role'] == 'admin' %}
+                <i class="fas fa-bullhorn"></i> Post Announcement
+            {% else %}
+                <i class="fas fa-bell"></i> Recent Announcements
+            {% endif %}
+        </h2>
+    </div>
+    
+    <div class="card-body">
+        {% if session['role'] == 'admin' %}
+            <form action="/post_announcement" method="POST">
+                <textarea name="announcement_text" placeholder="Write announcement here..." required>{{ announcement if announcement != "No current announcements." }}</textarea>
+                <button type="submit" class="btn-post">Post Announcement</button>
+            </form>
+        {% else %}
+            <div class="announcement-display">
+                {% if announcement and announcement != "No current announcements." %}
+                    <p>{{ announcement }}</p>
+                {% else %}
+                    <div class="empty-state">
+                        <p>No new announcements from CCS Admin.</p>
+                    </div>
+                {% endif %}
             </div>
-
+        {% endif %}
+    </div>
+</div>
         </div>
     </div>
-
 </body>
 </html>

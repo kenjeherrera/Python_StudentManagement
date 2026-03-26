@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student - CCS Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="reg-body">
+    <nav class="admin-navbar">
+        <div class="nav-brand">College of Computer Studies Admin</div>
+        <div class="nav-links">
+            <a href="/dashboard">Home</a>
+            <a href="/sit_in_page" class="active">Students</a>
+            <a href="/logout" class="logout-btn">Log out</a>
+        </div>
+    </nav>
+
+    <div class="register-wrapper">
+        <div class="register-container">
+            <h2 class="form-title">Add New Student</h2>
+            
+            <form action="/add_student" method="POST">
+                <div class="form-grid-container">
+                    <div class="input-pair">
+                        <label>ID Number</label>
+                        <input type="text" name="id_number" placeholder="e.g. 23792948" required>
+                    </div>
+                   <div class="input-pair">
+    <label>Course</label>
+    <select name="course" required>
+        <option value="" disabled selected>Select Course</option>
+        <optgroup label="Technology & Engineering">
+            <option value="BSIT">Information Technology</option>
+            <option value="BSCpE">Computer Engineering</option>
+            <option value="BSCE">Civil Engineering</option>
+            <option value="BSME">Mechanical Engineering</option>
+            <option value="BSEE">Electrical Engineering</option>
+            <option value="BSIE">Industrial Engineering</option>
+            <option value="BSNAME">Naval Architecture and Marine Engineering</option>
+        </optgroup>
+        <optgroup label="Education & Arts">
+            <option value="BEEd">Elementary Education (BEEd)</option>
+            <option value="BSEd">Secondary Education (BSEd)</option>
+            <option value="AB-PolSci">AB Political Science</option>
+            <option value="AB-English">AB English</option>
+        </optgroup>
+        <optgroup label="Business & Professional">
+            <option value="BSCrim">Criminology</option>
+            <option value="BSCom">Commerce</option>
+            <option value="BSA">Accountancy</option>
+            <option value="BSHRM">Hotel and Restaurant Management</option>
+            <option value="BSCA">Customs Administration</option>
+            <option value="CompSec">Computer Secretarial</option>
+            <option value="BSIP">Industrial Psychology</option>
+        </optgroup>
+        <optgroup label="Special Programs">
+            <option value="CISCO">CISCO Networking Academy (Module 1 - 4)</option>
+            <option value="English-Comm">English Communication Skills</option>
+            <option value="Korean">Conversational Korean</option>
+        </optgroup>
+    </select>
+</div>
+
+                    <div class="input-pair">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" placeholder="Enter first name" required>
+                    </div>
+                    <div class="input-pair">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" placeholder="Enter last name" required>
+                    </div>
+
+                    <div class="input-pair">
+                        <label>Year Level</label>
+                        <input type="number" name="year_level" min="1" max="4" placeholder="1-4" required>
+                    </div>
+                    <div class="input-pair">
+                        <label>Temporary Password</label>
+                        <input type="password" name="password" placeholder="••••••">
+                    </div>
+
+                    <div class="full-width-actions">
+                        <button type="submit" class="btn-save">Save Student Record</button>
+                        <a href="/sit_in_page" class="btn-cancel">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Sit in - CCS Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin-page">
+    <nav class="admin-navbar">
+        <div class="nav-brand">College of Computer Studies Admin</div>
+        <div class="nav-links">
+            <a href="/dashboard">Home</a>
+            <a href="/sit_in_page" class="active">Students</a>
+            <a href="/logout" class="logout-btn">Log out</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <h1 class="page-header">Current Sit in</h1>
+        
+        <div class="container">
+            <div class="action-buttons-row">
+                <a href="/add_student" class="btn-add">Add Students</a>
+                <button class="btn-reset">Reset All Session</button>
+            </div>
+
+            <div class="table-utility">
+                <div class="entries-selector">
+                    <select name="entries"><option value="10">10</option></select> entries per page
+                </div>
+                <div class="search-container">
+                    Search: <input type="text" id="adminSearch" onkeyup="filterTable()" placeholder="Search ID or Name...">
+                </div>
+            </div>
+
+            <table class="admin-table" id="sitInTable">
+                <thead>
+                    <tr>
+                        <th>ID Number ⇅</th>
+                        <th>Name ⇅</th>
+                        <th>Year Level ⇅</th>
+                        <th>Course ⇅</th>
+                        <th>Remaining Session ⇅</th>
+                        <th>Actions ⇅</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if not sitin_records %}
+                    <tr><td colspan="6" class="no-data">No data available in table</td></tr>
+                    {% else %}
+                        {% for student in sitin_records %}
+                        <tr>
+                            <td>{{ student.id_number }}</td>
+                            <td>{{ student.first_name }} {{ student.last_name }}</td>
+                            <td>{{ student.course_level }}</td>
+                            <td>{{ student.course }}</td>
+                            <td>{{ student.remaining_session }}</td>
+                            <td>
+                                <button class="btn-edit-small" 
+                                        onclick="openSitInModal('{{ student.id_number }}', '{{ student.first_name }} {{ student.last_name }}', '{{ student.remaining_session }}')">
+                                    Edit
+                                </button>
+                                <a href="{{ url_for('delete_student', id_number=student.id_number) }}" 
+                                   class="btn-delete-small" onclick="return confirm('Delete this student?')">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="sitInModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sit In Form</h2>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+            <form action="/process_sitin" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>ID Number:</label>
+                        <input type="text" id="modal_id" name="id_number" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Student Name:</label>
+                        <input type="text" id="modal_name" name="student_name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Purpose:</label>
+                        <select name="purpose" required>
+                            <option value="C Programming">C Programming</option>
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                            <option value="Research">Research</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Lab:</label>
+                        <select name="lab_number" required>
+                            <option value="524">524</option>
+                            <option value="526">526</option>
+                            <option value="530">530</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Remaining Session:</label>
+                        <input type="text" id="modal_remaining" name="remaining" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Close</button>
+                    <button type="submit" class="confirm-btn">Sit In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openSitInModal(id, name, remaining) {
+            document.getElementById('modal_id').value = id;
+            document.getElementById('modal_name').value = name;
+            document.getElementById('modal_remaining').value = remaining;
+            document.getElementById('sitInModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('sitInModal').style.display = 'none';
+        }
+
+        function filterTable() {
+            var input = document.getElementById("adminSearch");
+            var filter = input.value.toUpperCase();
+            var tr = document.getElementById("sitInTable").getElementsByTagName("tr");
+            for (var i = 1; i < tr.length; i++) {
+                var rowVisible = false;
+                var tdArray = tr[i].getElementsByTagName("td");
+                // Search ID (0) and Name (1)
+                for (var j = 0; j < 2; j++) {
+                    if (tdArray[j] && tdArray[j].innerText.toUpperCase().indexOf(filter) > -1) {
+                        rowVisible = true; break;
+                    }
+                }
+                tr[i].style.display = rowVisible ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
